@@ -143,7 +143,10 @@ export default function Home() {
           </a>
           .<br />
           Source code available on{" "}
-          <a href="https://nextjs.org/" className="hover:underline">
+          <a
+            href="https://github.com/davidchalifoux/chalifoux.dev"
+            className="hover:underline"
+          >
             GitHub
           </a>
           .
