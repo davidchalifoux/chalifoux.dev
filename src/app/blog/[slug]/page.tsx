@@ -1,14 +1,36 @@
 import { RecentPosts } from "@/components/RecentPosts";
 import { getPostBySlug } from "@/lib/fetchers";
 import dayjs from "dayjs";
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+type Props = {
+  params: { slug: string };
+};
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export async function generateMetadata(props: Props): Promise<Metadata> {
   try {
-    const post = await getPostBySlug({ slug: params.slug });
+    const post = await getPostBySlug({ slug: props.params.slug });
+
+    return {
+      title: post.title,
+      description: post.excerpt,
+      authors: {
+        name: "David Chalifoux",
+      },
+      category: post.tags ? post.tags[0].name : undefined,
+    };
+  } catch (error) {
+    return {
+      title: "Post not found",
+    };
+  }
+}
+
+export default async function Page(props: Props) {
+  try {
+    const post = await getPostBySlug({ slug: props.params.slug });
 
     return (
       <>
