@@ -1,7 +1,7 @@
 import { RecentPosts } from "@/components/RecentPosts";
 import { getPostBySlug } from "@/lib/fetchers";
 import dayjs from "dayjs";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
