@@ -11,7 +11,8 @@ const font = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Chalifoux.dev - David Chalifoux",
-  description: "David Chalifoux is a developer who loves the web.",
+  description:
+    "David Chalifoux is a developer who loves the web. This is his personal site.",
   themeColor: "#171717",
 };
 
