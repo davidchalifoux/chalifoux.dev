@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.chalifoux.dev"),
-  title: "Chalifoux.dev - David Chalifoux",
+  title: "David Chalifoux",
   description:
     "David Chalifoux is a developer who loves the web. This is his personal site.",
 };
