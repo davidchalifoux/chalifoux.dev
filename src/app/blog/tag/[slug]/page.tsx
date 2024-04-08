@@ -1,5 +1,5 @@
 import { PostListItem } from "@/components/PostListItem";
-import { getPostBySlug, getPostsByTag, getTagBySlug } from "@/lib/fetchers";
+import { getPostsByTag, getTagBySlug } from "@/lib/fetchers";
 import { notFound } from "next/navigation";
 
 export const revalidate = 60;
