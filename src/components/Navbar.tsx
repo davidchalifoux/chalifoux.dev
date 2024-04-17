@@ -12,7 +12,7 @@ const navigation = [
   { name: "Work", href: "/#work" },
   { name: "Projects", href: "/#projects" },
   { name: "Contact", href: "/#contact" },
-  { name: "Blog", href: "/blog" },
+  { name: "Blog", href: process.env.NEXT_PUBLIC_GHOST_URL! },
 ];
 
 export function Navbar() {

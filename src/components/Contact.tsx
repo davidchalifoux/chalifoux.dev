@@ -52,8 +52,9 @@ export const Contact: React.FC = () => {
                   <Link
                     className="font-semibold text-yellow-300"
                     href="https://github.com/davidchalifoux"
+                    target="_blank"
                   >
-                    @davidchalifoux
+                    /davidchalifoux
                   </Link>
                 </dd>
               </div>
@@ -73,8 +74,9 @@ export const Contact: React.FC = () => {
                   <Link
                     className="font-semibold text-yellow-300"
                     href="https://www.linkedin.com/in/david-chalifoux/"
+                    target="_blank"
                   >
-                    @david-chalifoux
+                    /david-chalifoux
                   </Link>
                 </dd>
               </div>

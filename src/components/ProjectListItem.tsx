@@ -38,8 +38,9 @@ export const ProjectListItem: React.FC<Props> = (props) => {
             href={props.websiteUrl}
             className={classNames(
               "hover:text-yellow-300 mr-4",
-              "anchor-website"
+              "anchor-website",
             )}
+            target="_blank"
           >
             <GlobeAltIcon className="inline-block h-5 w-5" />
           </Link>
@@ -48,6 +49,7 @@ export const ProjectListItem: React.FC<Props> = (props) => {
           <Link
             href={props.repoUrl}
             className={classNames("hover:text-yellow-300 mr-4", "anchor-repo")}
+            target="_blank"
           >
             <CodeBracketIcon className="inline-block h-5 w-5" />
           </Link>

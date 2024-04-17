@@ -15,6 +15,7 @@ import adventureImage from "@/assets/projects/adventure.png";
 import redditImage from "@/assets/projects/reddit.png";
 import frankerImage from "@/assets/projects/franker.png";
 import ticTacToeImage from "@/assets/projects/tic-tac-toe.png";
+import keylightCommanderImage from "@/assets/projects/keylight-commander.png";
 
 type ProjectListProps = {
   children: React.ReactNode;
@@ -77,6 +78,14 @@ export default async function Home() {
           description="The unofficial CLI client for Put.io. Kaput lets you manage your Put.io account from the comfort of your terminal!"
           websiteUrl="https://kaput.sh/"
           repoUrl="https://github.com/davidchalifoux/kaput-cli"
+        />
+
+        <ProjectListItem
+          image={keylightCommanderImage}
+          title="Keylight Commander"
+          technologies={["TypeScript", "Rust", "React"]}
+          description="Keylight Commander is an open-source and cross-platform application for controlling Elgato Key Lights."
+          repoUrl="https://github.com/davidchalifoux/keylight-commander"
         />
 
         <ProjectListItem

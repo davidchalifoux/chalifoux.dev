@@ -25,7 +25,7 @@ export const PostListItem: React.FC<Props> = (props) => {
           return (
             <Link
               key={tag.id}
-              href={`/blog/tag/${tag.slug}`}
+              href={`${process.env.NEXT_PUBLIC_GHOST_URL}/tag/${tag.slug}`}
               className="relative z-10 rounded-full bg-neutral-800 px-3 py-1.5 font-medium text-neutral-400 hover:bg-neutral-950"
             >
               {tag.name}
@@ -35,7 +35,7 @@ export const PostListItem: React.FC<Props> = (props) => {
       </div>
       <div className="group relative">
         <h3 className="mt-3 text-lg font-semibold leading-6 text-neutral-100 group-hover:underline underline-offset-4">
-          <Link href={`/blog/${props.slug}`}>
+          <Link href={`${process.env.NEXT_PUBLIC_GHOST_URL}/${props.slug}`}>
             <span className="absolute inset-0" />
             {props.title}
           </Link>
