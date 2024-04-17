@@ -20,7 +20,7 @@ export const getRecentPosts = async (): Promise<PostOrPage[]> => {
     );
 
     if (!res.ok) {
-      console.error(res.body);
+      console.error(await res.json());
       throw new Error("Failed to fetch posts");
     }
 
