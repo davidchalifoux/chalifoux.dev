@@ -1,5 +1,3 @@
-"use server";
-
 import { PostListItem } from "@/components/PostListItem";
 import { getRecentPosts } from "@/lib/fetchers";
 

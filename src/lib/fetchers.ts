@@ -15,13 +15,18 @@ export const getRecentPosts = async () => {
     filter: "visibility:public",
   });
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_GHOST_URL!}/ghost/api/content/posts?${params.toString()}`,
-  );
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_GHOST_URL!}/ghost/api/content/posts?${params.toString()}`,
+    );
 
-  const body = (await res.json()) as {
-    posts: PostOrPage[];
-  };
+    const body = (await res.json()) as {
+      posts: PostOrPage[];
+    };
 
-  return body.posts;
+    return body.posts;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
