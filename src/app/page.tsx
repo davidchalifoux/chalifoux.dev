@@ -38,7 +38,7 @@ export default async function Home() {
         <ProjectListItem
           image={lomaImage}
           title="LOMA"
-          technologies={["React", "TypeScript", "PostgreSQL"]}
+          technologies={["Next.js", "TypeScript", "PostgreSQL"]}
           description="I currently work as a founding engineer at LOMA, building a platform designed to scale and validate local marketing for multi-unit brands."
           websiteUrl="https://www.lomafunds.com/"
         />
@@ -53,13 +53,13 @@ export default async function Home() {
           image={vanirImage}
           title="Vanir"
           technologies={["React", "TypeScript", "Next.js"]}
-          description="Created as a tool for Taylor University's IT department, Vanir is a lightweight and mobile-friendly application which combines data from the department's asset management, firewall, and helpdesk systems."
+          description="Created for Taylor University, Vanir combines data from asset, firewall, and helpdesk systems, enabling IT Technicians to be more efficient in the field."
         />
         <ProjectListItem
           image={envisageImage}
           title="Envisage Planner"
           technologies={["Vue", "JavaScript", "Prisma"]}
-          description="As a founding software & infrastructure engineer, I helped Envisage create a next-generation degree planner which helps students to reimagine college through academic planning."
+          description="As a founding Software & Infrastructure Engineer, I helped Envisage create a next-generation degree planner which helps students get the most out of their degree."
           websiteUrl="https://envisageplanner.com/"
         />
       </ProjectList>
@@ -110,7 +110,7 @@ export default async function Home() {
           image={frankerImage}
           title="FrankerFaceZ for Raycast"
           technologies={["TypeScript"]}
-          description="An extension for Raycast that allows you to quickly use the FrankerFaceZ emote library."
+          description="An extension for Raycast that gives you quick access to the FrankerFaceZ emote library."
           websiteUrl="https://www.raycast.com/davidchalifoux/frankerfacez"
           repoUrl="https://github.com/raycast/extensions/tree/47cdb0892464fd5dc65af7eef231aef6bd93a4f9/extensions/frankerfacez/"
         />

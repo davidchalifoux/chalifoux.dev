@@ -25,6 +25,7 @@ export const Hero: React.FC = () => {
           <Image
             src={headshotImage}
             priority
+            quality={90}
             alt="Headshot of David Chalifoux"
             className="mt-12 aspect-[6/5] w-full rounded-2xl object-cover xl:row-span-2 xl:row-end-2 xl:mt-42 max-w-lg xl:mx-auto"
           />
