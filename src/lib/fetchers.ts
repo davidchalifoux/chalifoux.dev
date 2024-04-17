@@ -19,6 +19,10 @@ export const getRecentPosts = async (): Promise<PostOrPage[]> => {
       { next: { revalidate: 1800 } },
     );
 
+    if (!res.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+
     const body = (await res.json()) as {
       posts: PostOrPage[];
     };
