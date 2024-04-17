@@ -1,5 +1,3 @@
-"use server";
-
 import type { PostOrPage } from "@tryghost/content-api";
 
 /**
@@ -18,6 +16,7 @@ export const getRecentPosts = async (): Promise<PostOrPage[]> => {
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_GHOST_URL!}/ghost/api/content/posts?${params.toString()}`,
+      { next: { revalidate: 1800 } },
     );
 
     const body = (await res.json()) as {
