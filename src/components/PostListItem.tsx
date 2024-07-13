@@ -1,6 +1,6 @@
 import { Tag } from "@tryghost/content-api";
-import dayjs from "dayjs";
 import Link from "next/link";
+import { DateTime } from "luxon";
 
 type Props = {
   title: string;
@@ -18,7 +18,7 @@ export const PostListItem: React.FC<Props> = (props) => {
           dateTime={props.published_at ?? undefined}
           className="text-neutral-500"
         >
-          {dayjs(props.published_at).format("YYYY-MM-DD")}
+          {DateTime.fromISO(props.published_at).toISODate()}
         </time>
 
         {props.tags?.map((tag) => {

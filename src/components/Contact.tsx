@@ -1,7 +1,7 @@
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitter,
+  IconBrandX,
   IconMail,
 } from "@tabler/icons-react";
 import Link from "next/link";
@@ -85,18 +85,18 @@ export const Contact: React.FC = () => {
 
           <div className="rounded-2xl bg-neutral-950 p-10">
             <div className="flex items-center gap-2">
-              <IconBrandTwitter className="text-neutral-100 w-6 h-6" />
+              <IconBrandX className="text-neutral-100 w-6 h-6" />
               <h3 className="text-base font-semibold leading-7 text-neutral-100">
-                Twitter
+                X
               </h3>
             </div>
             <dl className="mt-3 space-y-1 text-sm leading-6 text-neutral-600">
               <div>
-                <dt className="sr-only">Twitter</dt>
+                <dt className="sr-only">X</dt>
                 <dd>
                   <Link
                     className="font-semibold text-yellow-300"
-                    href="https://twitter.com/DavidChalifoux"
+                    href="https://x.com/DavidChalifoux"
                   >
                     @davidchalifoux
                   </Link>
