@@ -1,6 +1,9 @@
+"use client";
+
 import headshotImage from "@/assets/headshot.png";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export const Hero: React.FC = () => {
 	return (
@@ -22,13 +25,15 @@ export const Hero: React.FC = () => {
 						</p>
 						<ArrowDownIcon className="mt-6 h-6 w-6 text-yellow-300 animate-bounce" />
 					</div>
-					<Image
-						src={headshotImage}
-						priority
-						quality={90}
-						alt="Headshot of David Chalifoux"
-						className="mt-12 aspect-[6/5] w-full rounded-2xl object-cover xl:row-span-2 xl:row-end-2 xl:mt-42 max-w-lg xl:mx-auto"
-					/>
+					<motion.div initial={{ translateY: 600 }} animate={{ translateY: 0 }}>
+						<Image
+							src={headshotImage}
+							priority
+							quality={90}
+							alt="Headshot of David Chalifoux"
+							className="mt-12 aspect-[6/5] w-full rounded-2xl object-cover xl:row-span-2 xl:row-end-2 xl:mt-42 max-w-lg xl:mx-auto"
+						/>
+					</motion.div>
 				</div>
 			</div>
 		</div>
