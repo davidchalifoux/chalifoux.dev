@@ -22,7 +22,7 @@ export function Navbar() {
 	return (
 		<header className="bg-neutral-900 bg-opacity-80 sticky top-0 z-50 border-b border-neutral-800">
 			<nav
-				className="container flex items-center justify-between p-6 backdrop-blur"
+				className="container flex items-center justify-between p-6 backdrop-blur-sm"
 				aria-label="Global"
 			>
 				<div className="flex lg:flex-1">

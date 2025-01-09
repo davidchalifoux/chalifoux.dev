@@ -19,7 +19,7 @@ export const ProjectListItem: React.FC<Props> = (props) => {
 		<div>
 			<ProjectListItemTooltips />
 			<Image
-				className="aspect-[4/3] w-full rounded-lg object-cover border border-neutral-800"
+				className="aspect-4/3 w-full rounded-lg object-cover border border-neutral-800"
 				src={props.image}
 				alt="Project image"
 			/>
