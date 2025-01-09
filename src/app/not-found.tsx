@@ -13,7 +13,7 @@ export default function NotFound() {
 			<div className="mt-10 flex items-center justify-center gap-x-6">
 				<Link
 					href="/"
-					className="rounded-md bg-neutral-100 px-3.5 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					className="rounded-md bg-neutral-100 px-3.5 py-2.5 text-sm font-semibold text-neutral-900 shadow-xs hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 				>
 					Go back home
 				</Link>
