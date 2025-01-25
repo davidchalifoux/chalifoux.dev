@@ -1,8 +1,24 @@
 import { PostListItem } from "@/components/PostListItem";
-import { getRecentPosts } from "@/lib/fetchers";
+import { type PostEntry, contentful } from "@/lib/contentful";
 
 export const RecentPosts: React.FC = async () => {
-	const posts = await getRecentPosts();
+	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
+		{
+			content_type: "blogPost",
+			order: ["-fields.date"],
+			limit: 3,
+			select: [
+				"metadata",
+				"fields.date",
+				"fields.excerpt",
+				"fields.slug",
+				"fields.tags",
+				"fields.title",
+			],
+		},
+	);
+
+	console.log(posts);
 
 	return (
 		<div className="container py-64" id="contact">
@@ -14,14 +30,14 @@ export const RecentPosts: React.FC = async () => {
 					<p className="mt-4 leading-7 text-neutral-400">My latest writings.</p>
 				</div>
 				<div className="grid grid-cols-1 gap-6 lg:col-span-2 lg:gap-8">
-					{posts.map((post) => (
+					{posts.items.map((post) => (
 						<PostListItem
-							key={post.id}
-							title={post.title ?? ""}
-							published_at={post.published_at ?? ""}
-							tags={post.tags ?? []}
-							slug={post.slug}
-							excerpt={post.excerpt ?? ""}
+							key={post.sys.id}
+							title={post.fields.title}
+							published_at={post.fields.date}
+							tags={post.fields.tags}
+							slug={post.fields.slug}
+							excerpt={post.fields.excerpt}
 						/>
 					))}
 				</div>

@@ -1,11 +1,12 @@
-import type { Tag } from "@tryghost/content-api";
+import type { TagEntry } from "@/lib/contentful";
+import type { Entry } from "contentful";
 import { DateTime } from "luxon";
 import Link from "next/link";
 
 type Props = {
 	title: string;
 	published_at: string;
-	tags: Tag[];
+	tags: (Entry<TagEntry, "WITHOUT_UNRESOLVABLE_LINKS", string> | undefined)[];
 	slug: string;
 	excerpt: string;
 };
@@ -21,21 +22,25 @@ export const PostListItem: React.FC<Props> = (props) => {
 					{DateTime.fromISO(props.published_at).toISODate()}
 				</time>
 
-				{props.tags?.map((tag) => {
+				{props.tags.map((tag) => {
+					if (!tag) {
+						return null;
+					}
+
 					return (
 						<Link
-							key={tag.id}
-							href={`${process.env.NEXT_PUBLIC_GHOST_URL}/tag/${tag.slug}`}
-							className="relative z-10 rounded-full bg-neutral-800 px-3 py-1.5 font-medium text-neutral-400 hover:bg-neutral-950"
+							key={tag.sys.id}
+							href={`/blog/tag/${tag.fields.slug}`}
+							className="relative rounded-full bg-neutral-800 px-3 py-1.5 font-medium text-neutral-400 hover:bg-neutral-950"
 						>
-							{tag.name}
+							{tag.fields.title}
 						</Link>
 					);
 				})}
 			</div>
 			<div className="group relative">
 				<h3 className="mt-3 text-lg font-semibold leading-6 text-neutral-100 group-hover:underline underline-offset-4">
-					<Link href={`${process.env.NEXT_PUBLIC_GHOST_URL}/${props.slug}`}>
+					<Link href={`/blog/${props.slug}`}>
 						<span className="absolute inset-0" />
 						{props.title}
 					</Link>

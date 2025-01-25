@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
+/*@custom-variant prose-inline-code (&.prose > code)*/
+
 @theme {
 	--breakpoint-\*: initial;
 	--breakpoint-sm: 640px;
@@ -11,4 +15,8 @@
 @utility container {
 	margin-inline: auto;
 	padding-inline: 2rem;
+}
+
+.prose p > code {
+	@apply bg-neutral-950 before:content-none after:content-none px-2 py-1 rounded-sm whitespace-break-spaces
 }
