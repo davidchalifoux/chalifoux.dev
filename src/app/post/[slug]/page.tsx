@@ -7,6 +7,19 @@ interface Props {
 	params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
+		{
+			content_type: "blogPost",
+			select: ["fields.slug"],
+		},
+	);
+
+	return posts.items.map((post) => ({
+		slug: post.fields.slug,
+	}));
+}
+
 export async function generateMetadata(
 	props: Props,
 	parent: ResolvingMetadata,
