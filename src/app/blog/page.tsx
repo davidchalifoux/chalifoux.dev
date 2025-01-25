@@ -1,12 +1,11 @@
 import { PostListItem } from "@/components/PostListItem";
 import { type PostEntry, contentful } from "@/lib/contentful";
 
-export const RecentPosts: React.FC = async () => {
+export default async function Blog() {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
 		{
 			content_type: "blogPost",
 			order: ["-fields.date"],
-			limit: 3,
 			select: [
 				"metadata",
 				"fields.date",
@@ -19,15 +18,17 @@ export const RecentPosts: React.FC = async () => {
 	);
 
 	return (
-		<div className="container py-64" id="contact">
-			<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
-				<div>
-					<h2 className="text-3xl font-bold tracking-tight text-neutral-100">
-						Recent Posts
+		<div className="py-24 sm:py-32">
+			<div className="container">
+				<div className="mx-auto max-w-2xl text-center">
+					<h2 className="text-4xl font-semibold tracking-tight text-balance text-neutral-100 sm:text-5xl">
+						Blog
 					</h2>
-					<p className="mt-4 leading-7 text-neutral-400">My latest writings.</p>
+					<p className="mt-2 text-lg/8 text-neutral-400">
+						Things I've learned.
+					</p>
 				</div>
-				<div className="grid grid-cols-1 gap-6 lg:col-span-2 lg:gap-8">
+				<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-y-16">
 					{posts.items.map((post) => (
 						<PostListItem
 							key={post.sys.id}
@@ -42,4 +43,4 @@ export const RecentPosts: React.FC = async () => {
 			</div>
 		</div>
 	);
-};
+}

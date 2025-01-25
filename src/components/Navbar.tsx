@@ -6,14 +6,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 import logo from "@/assets/logo.svg";
-import { CLIENT_ENV } from "@/lib/CLIENT_ENV";
 import Image from "next/image";
 
 const navigation = [
 	{ name: "Work", href: "/#work" },
 	{ name: "Projects", href: "/#projects" },
 	{ name: "Contact", href: "/#contact" },
-	{ name: "Blog", href: CLIENT_ENV.GHOST_URL },
+	{ name: "Blog", href: "/blog" },
 ];
 
 export function Navbar() {

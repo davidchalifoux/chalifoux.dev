@@ -10,7 +10,6 @@ export const Hero: React.FC = () => {
 		<div className="overflow-hidden bg-linear-to-b from-neutral-900 from-50% to-neutral-950">
 			<div className="container py-32 lg:py-64">
 				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:gap-x-8">
-
 					<div>
 						<h1 className="max-w-2xl text-4xl font-bold tracking-tight text-neutral-100 sm:text-6xl lg:col-span-2 xl:col-auto">
 							Hey there!
@@ -25,13 +24,13 @@ export const Hero: React.FC = () => {
 							<p className="text-lg leading-8 text-neutral-400">
 								You can learn more about my work below.
 							</p>
-							<ArrowDownIcon className="mt-6 h-6 w-6 text-yellow-300 animate-bounce"/>
+							<ArrowDownIcon className="mt-6 h-6 w-6 text-yellow-300 animate-bounce" />
 						</div>
 					</div>
 
 					<motion.div
-						initial={{translateY: 600}}
-						animate={{translateY: 0}}
+						initial={{ translateY: 600 }}
+						animate={{ translateY: 0 }}
 						className="perspective-distant"
 					>
 						<Image
