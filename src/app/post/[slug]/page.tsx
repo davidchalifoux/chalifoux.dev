@@ -12,6 +12,7 @@ export async function generateStaticParams() {
 		{
 			content_type: "blogPost",
 			select: ["fields.slug"],
+			limit: 1000,
 		},
 	);
 
