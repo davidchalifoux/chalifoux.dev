@@ -3,7 +3,10 @@ import * as contentfulSdk from "contentful";
 
 export const contentful = contentfulSdk.createClient({
 	space: SERVER_ENV.CONTENTFUL_SPACE_ID,
-	accessToken: SERVER_ENV.CONTENTFUL_API_KEY,
+	accessToken: SERVER_ENV.IS_PRODUCTION
+		? SERVER_ENV.CONTENTFUL_API_KEY
+		: SERVER_ENV.CONTENTFUL_PREVIEW_API_KEY,
+	host: SERVER_ENV.IS_PRODUCTION ? undefined : "preview.contentful.com",
 });
 
 export interface TagEntry {
