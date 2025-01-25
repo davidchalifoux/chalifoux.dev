@@ -13,6 +13,7 @@ export async function generateMetadata(
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	const params = await props.params;
+
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
 		{
 			content_type: "blogPost",
