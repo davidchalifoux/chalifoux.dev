@@ -1,8 +1,9 @@
+import { SERVER_ENV } from "@/lib/SERVER_ENV";
 import * as contentfulSdk from "contentful";
 
 export const contentful = contentfulSdk.createClient({
-	space: "5fcqcmwae8kw",
-	accessToken: "ktED50FEgOP3Urd0dsHlVk8qEAYhElUFbckSdqtn_G4",
+	space: SERVER_ENV.CONTENTFUL_SPACE_ID,
+	accessToken: SERVER_ENV.CONTENTFUL_API_KEY,
 });
 
 export interface TagEntry {

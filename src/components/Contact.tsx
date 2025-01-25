@@ -69,12 +69,12 @@ const contactCards: ContactCardProps[] = [
 		subtitle: "@chalifoux.dev",
 		href: "https://bsky.app/profile/chalifoux.dev",
 	},
-	{
-		icon: "x",
-		title: "X",
-		subtitle: "@davidchalifoux",
-		href: "https://x.com/DavidChalifoux",
-	},
+	// {
+	// 	icon: "x",
+	// 	title: "X",
+	// 	subtitle: "@davidchalifoux",
+	// 	href: "https://x.com/DavidChalifoux",
+	// },
 ];
 
 export const Contact: React.FC = () => {

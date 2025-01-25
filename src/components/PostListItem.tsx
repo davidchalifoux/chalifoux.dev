@@ -13,7 +13,7 @@ type Props = {
 
 export const PostListItem: React.FC<Props> = (props) => {
 	return (
-		<article className="flex max-w-xl flex-col items-start justify-between">
+		<article className="flex max-w-xl flex-col items-start">
 			<div className="flex items-center gap-x-4 text-xs">
 				<time
 					dateTime={props.published_at ?? undefined}
@@ -30,7 +30,7 @@ export const PostListItem: React.FC<Props> = (props) => {
 					return (
 						<Link
 							key={tag.sys.id}
-							href={`/blog/tag/${tag.fields.slug}`}
+							href={`/tag/${tag.fields.slug}`}
 							className="relative rounded-full bg-neutral-800 px-3 py-1.5 font-medium text-neutral-400 hover:bg-neutral-950"
 						>
 							{tag.fields.title}
@@ -38,9 +38,10 @@ export const PostListItem: React.FC<Props> = (props) => {
 					);
 				})}
 			</div>
+
 			<div className="group relative">
 				<h3 className="mt-3 text-lg font-semibold leading-6 text-neutral-100 group-hover:underline underline-offset-4">
-					<Link href={`/blog/${props.slug}`}>
+					<Link href={`/post/${props.slug}`}>
 						<span className="absolute inset-0" />
 						{props.title}
 					</Link>

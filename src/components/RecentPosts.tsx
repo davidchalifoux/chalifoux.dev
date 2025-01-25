@@ -18,8 +18,6 @@ export const RecentPosts: React.FC = async () => {
 		},
 	);
 
-	console.log(posts);
-
 	return (
 		<div className="container py-64" id="contact">
 			<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
