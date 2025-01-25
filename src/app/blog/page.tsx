@@ -20,7 +20,7 @@ export default async function Blog() {
 	return (
 		<div className="py-24 sm:py-32">
 			<div className="container">
-				<div className="mx-auto max-w-2xl text-center">
+				<div className="mx-auto max-w-2xl">
 					<h2 className="text-4xl font-semibold tracking-tight text-balance text-neutral-100 sm:text-5xl">
 						Blog
 					</h2>
