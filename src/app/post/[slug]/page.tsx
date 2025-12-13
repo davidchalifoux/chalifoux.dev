@@ -77,7 +77,7 @@ export default async function BlogPost(props: PageProps<"/post/[slug]">) {
 		<div className={"px-8 pt-32 pb-64"}>
 			<div className={"max-w-[65ch] mx-auto"}>
 				<p className="text-base/7 font-semibold text-yellow-300">
-					{post.fields.tags.map((r) => {
+					{post.fields.tags?.map((r) => {
 						if (!r) {
 							return null;
 						}
