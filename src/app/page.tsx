@@ -1,21 +1,22 @@
 // Components
-import { Contact } from "@/components/Contact";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { ProjectListItem } from "@/components/ProjectListItem";
-import { RecentPosts } from "@/components/RecentPosts";
-
 import adventureImage from "@/assets/projects/adventure.png";
 import envisageImage from "@/assets/projects/envisage.png";
 import frankerImage from "@/assets/projects/franker.png";
 import kaputImage from "@/assets/projects/kaput.png";
 import keylightCommanderImage from "@/assets/projects/keylight-commander.png";
 import lomaImage from "@/assets/projects/loma.png";
+import optynImage from "@/assets/projects/optyn.png";
 import redditImage from "@/assets/projects/reddit.png";
 import tentoriumImage from "@/assets/projects/tentorium.png";
 import ticTacToeImage from "@/assets/projects/tic-tac-toe.png";
+
 // Images
 import vanirImage from "@/assets/projects/vanir.png";
+import { Contact } from "@/components/Contact";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { ProjectListItem } from "@/components/ProjectListItem";
+import { RecentPosts } from "@/components/RecentPosts";
 
 type ProjectListProps = {
 	children: React.ReactNode;
@@ -36,11 +37,18 @@ export default function Home() {
 			<Header id="work" title="Work" description="My professional work." />
 			<ProjectList>
 				<ProjectListItem
+					image={optynImage}
+					title="Optyn"
+					technologies={["React", "TypeScript", "PostgreSQL"]}
+					description="Easily create customizable payment links, manage orders, track sales, and get paid. All in one place."
+					websiteUrl="https://optyn.io/"
+				/>
+				<ProjectListItem
 					image={lomaImage}
 					title="LOMA"
 					technologies={["Next.js", "TypeScript", "PostgreSQL"]}
-					description="I currently work as a founding engineer at LOMA, building a platform designed to scale and validate local marketing for multi-unit brands."
-					websiteUrl="https://www.lomafunds.com/"
+					description="As a founding engineer, I built a platform designed to scale and validate local marketing for multi-unit brands."
+					websiteUrl="https://www.lomaplatform.com/"
 				/>
 				<ProjectListItem
 					image={tentoriumImage}

@@ -1,7 +1,7 @@
-import type { TagEntry } from "@/lib/contentful";
 import type { Entry } from "contentful";
 import { DateTime } from "luxon";
 import Link from "next/link";
+import type { TagEntry } from "@/lib/contentful";
 
 type Props = {
 	title: string;
@@ -22,7 +22,7 @@ export const PostListItem: React.FC<Props> = (props) => {
 					{DateTime.fromISO(props.published_at).toISODate()}
 				</time>
 
-				{props.tags.map((tag) => {
+				{props.tags?.map((tag) => {
 					if (!tag) {
 						return null;
 					}

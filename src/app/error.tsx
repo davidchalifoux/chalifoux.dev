@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-export default function Error({
-	error,
-	reset,
-}: {
-	error: Error & { digest?: string };
-	reset: () => void;
-}) {
+export default function ErrorPage() {
 	return (
 		<div className="text-center py-32">
 			<p className="text-base font-semibold text-yellow-300">ERROR</p>

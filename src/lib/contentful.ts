@@ -1,5 +1,5 @@
-import { SERVER_ENV } from "@/lib/SERVER_ENV";
 import * as contentfulSdk from "contentful";
+import { SERVER_ENV } from "@/lib/SERVER_ENV";
 
 export const contentful = contentfulSdk.createClient({
 	space: SERVER_ENV.CONTENTFUL_SPACE_ID,

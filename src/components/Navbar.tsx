@@ -2,11 +2,10 @@
 
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
 import logo from "@/assets/logo.svg";
-import Image from "next/image";
 
 const navigation = [
 	{ name: "Work", href: "/#work" },

@@ -1,9 +1,9 @@
 "use client";
 
-import headshotImage from "@/assets/headshot.png";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import { motion } from "motion/react";
 import Image from "next/image";
+import headshotImage from "@/assets/headshot.png";
 
 export const Hero: React.FC = () => {
 	return (
@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
 						<Image
 							src={headshotImage}
 							priority
-							quality={90}
+							quality={75}
 							alt="Headshot of David Chalifoux"
 							className="transform-3d hover:scale-z-90 shadow-xl mt-12 aspect-6/5 w-full rounded-2xl object-cover xl:row-span-2 xl:row-end-2 xl:mt-42 max-w-lg xl:mx-auto"
 						/>
