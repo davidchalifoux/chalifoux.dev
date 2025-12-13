@@ -1,15 +1,11 @@
-import { Markdown } from "@/components/Markdown";
-import { SERVER_ENV } from "@/lib/SERVER_ENV";
-import { type PostEntry, contentful } from "@/lib/contentful";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-
-interface Props {
-	params: Promise<{ slug: string }>;
-}
+import { Markdown } from "@/components/Markdown";
+import { contentful, type PostEntry } from "@/lib/contentful";
+import { SERVER_ENV } from "@/lib/SERVER_ENV";
 
 export async function generateMetadata(
-	props: Props,
+	props: PageProps<"/post/[slug]/preview">,
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	const params = await props.params;
@@ -49,7 +45,9 @@ export async function generateMetadata(
 	};
 }
 
-export default async function BlogPost(props: Props) {
+export default async function BlogPost(
+	props: PageProps<"/post/[slug]/preview">,
+) {
 	if (SERVER_ENV.IS_PRODUCTION) {
 		return notFound();
 	}

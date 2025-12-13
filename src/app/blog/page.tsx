@@ -1,5 +1,5 @@
 import { PostListItem } from "@/components/PostListItem";
-import { type PostEntry, contentful } from "@/lib/contentful";
+import { contentful, type PostEntry } from "@/lib/contentful";
 
 export default async function Blog() {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(

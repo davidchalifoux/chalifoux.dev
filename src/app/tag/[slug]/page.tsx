@@ -1,8 +1,4 @@
-interface Props {
-	params: Promise<{ slug: string }>;
-}
-
-export default function TagPage(props: Props) {
+export default function TagPage(_props: PageProps<"/tag/[slug]">) {
 	return (
 		<div className={"py-96 text-neutral-100 text-center"}>
 			<p>

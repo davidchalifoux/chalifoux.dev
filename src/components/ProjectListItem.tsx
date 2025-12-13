@@ -1,8 +1,7 @@
 import { CodeBracketIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import classNames from "classnames";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-
-import classNames from "classnames";
 import { ProjectListItemTooltips } from "./ProjectListemItemTooltips";
 
 type Props = {
