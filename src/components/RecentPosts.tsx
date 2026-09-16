@@ -1,5 +1,7 @@
+import { css } from "styled-system/css";
 import { PostListItem } from "@/components/PostListItem";
 import { contentful, type PostEntry } from "@/lib/contentful";
+import { container } from "@/lib/styles";
 
 export const RecentPosts: React.FC = async () => {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
@@ -19,15 +21,45 @@ export const RecentPosts: React.FC = async () => {
 	);
 
 	return (
-		<div className="container py-64" id="contact">
-			<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+		<div className={css(container, { py: "64" })} id="contact">
+			<div
+				className={css({
+					display: "grid",
+					gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
+					columnGap: "2rem",
+					rowGap: "2.5rem",
+					lg: { gridTemplateColumns: "repeat(3, minmax(0, 1fr))" },
+				})}
+			>
 				<div>
-					<h2 className="text-3xl font-bold tracking-tight text-neutral-100">
+					<h2
+						className={css({
+							fontSize: "3xl",
+							fontWeight: "bold",
+							letterSpacing: "tight",
+							color: "neutral.100",
+						})}
+					>
 						Recent Posts
 					</h2>
-					<p className="mt-4 leading-7 text-neutral-400">My latest writings.</p>
+					<p
+						className={css({
+							mt: "4",
+							lineHeight: "1.75rem",
+							color: "neutral.400",
+						})}
+					>
+						My latest writings.
+					</p>
 				</div>
-				<div className="grid grid-cols-1 gap-6 lg:col-span-2 lg:gap-8">
+				<div
+					className={css({
+						display: "grid",
+						gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
+						gap: "1.5rem",
+						lg: { gridColumn: "span 2 / span 2", gap: "2rem" },
+					})}
+				>
 					{posts.items.map((post) => (
 						<PostListItem
 							key={post.sys.id}

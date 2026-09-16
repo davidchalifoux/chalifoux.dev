@@ -5,6 +5,8 @@ import {
 	IconBrandX,
 	IconMail,
 } from "@tabler/icons-react";
+import { css } from "styled-system/css";
+import { container } from "@/lib/styles";
 
 const icons = {
 	github: IconBrandGithub,
@@ -26,19 +28,46 @@ function ContactCard(props: ContactCardProps) {
 
 	return (
 		<a
-			className="rounded-2xl bg-neutral-950 p-10 hover:bg-yellow-950 transition-all hover:shadow-inner hover:shadow-yellow-900/25 active:translate-y-1"
+			className={css({
+				borderRadius: "2xl",
+				bg: "neutral.950",
+				p: "10",
+				transition: "all",
+				_hover: {
+					bg: "yellow.950",
+					boxShadow: "inset 0 2px 4px 0 {colors.yellow.900/25}",
+				},
+				_active: { transform: "translateY(0.25rem)" },
+			})}
 			href={props.href}
 			target="_blank"
 			rel="noreferrer"
 		>
-			<div className="flex items-center gap-2">
-				<Icon className="text-neutral-100 w-6 h-6" />
-				<h3 className="text-base font-semibold leading-7 text-neutral-100">
+			<div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
+				<Icon className={css({ color: "neutral.100", w: "6", h: "6" })} />
+				<h3
+					className={css({
+						fontSize: "md",
+						fontWeight: "semibold",
+						lineHeight: "1.75rem",
+						color: "neutral.100",
+					})}
+				>
 					{props.title}
 				</h3>
 			</div>
-			<div className="mt-3 space-y-1 text-sm leading-6 text-neutral-600">
-				<div className="font-semibold text-yellow-300">{props.subtitle}</div>
+			<div
+				className={css({
+					mt: "3",
+					spaceY: "1",
+					fontSize: "sm",
+					lineHeight: "1.5rem",
+					color: "neutral.600",
+				})}
+			>
+				<div className={css({ fontWeight: "semibold", color: "yellow.300" })}>
+					{props.subtitle}
+				</div>
 			</div>
 		</a>
 	);
@@ -69,25 +98,50 @@ const contactCards: ContactCardProps[] = [
 		subtitle: "@chalifoux.dev",
 		href: "https://bsky.app/profile/chalifoux.dev",
 	},
-	// {
-	// 	icon: "x",
-	// 	title: "X",
-	// 	subtitle: "@davidchalifoux",
-	// 	href: "https://x.com/DavidChalifoux",
-	// },
 ];
 
 export const Contact: React.FC = () => {
 	return (
-		<div className="container py-64" id="contact">
-			<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+		<div className={css(container, { py: "64" })} id="contact">
+			<div
+				className={css({
+					display: "grid",
+					gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
+					columnGap: "2rem",
+					rowGap: "2.5rem",
+					lg: { gridTemplateColumns: "repeat(3, minmax(0, 1fr))" },
+				})}
+			>
 				<div>
-					<h2 className="text-3xl font-bold tracking-tight text-neutral-100">
+					<h2
+						className={css({
+							fontSize: "3xl",
+							fontWeight: "bold",
+							letterSpacing: "tight",
+							color: "neutral.100",
+						})}
+					>
 						Contact
 					</h2>
-					<p className="mt-4 leading-7 text-neutral-400">Get in touch.</p>
+					<p
+						className={css({
+							mt: "4",
+							lineHeight: "1.75rem",
+							color: "neutral.400",
+						})}
+					>
+						Get in touch.
+					</p>
 				</div>
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+				<div
+					className={css({
+						display: "grid",
+						gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
+						gap: "1.5rem",
+						sm: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" },
+						lg: { gridColumn: "span 2 / span 2", gap: "2rem" },
+					})}
+				>
 					{contactCards.map((card) => {
 						return <ContactCard key={card.title} {...card} />;
 					})}

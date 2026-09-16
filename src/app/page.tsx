@@ -1,4 +1,6 @@
 // Components
+
+import { css } from "styled-system/css";
 import adventureImage from "@/assets/projects/adventure.png";
 import envisageImage from "@/assets/projects/envisage.png";
 import frankerImage from "@/assets/projects/franker.png";
@@ -9,7 +11,6 @@ import optynImage from "@/assets/projects/optyn.png";
 import redditImage from "@/assets/projects/reddit.png";
 import tentoriumImage from "@/assets/projects/tentorium.png";
 import ticTacToeImage from "@/assets/projects/tic-tac-toe.png";
-
 // Images
 import vanirImage from "@/assets/projects/vanir.png";
 import { Contact } from "@/components/Contact";
@@ -17,6 +18,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ProjectListItem } from "@/components/ProjectListItem";
 import { RecentPosts } from "@/components/RecentPosts";
+import { container } from "@/lib/styles";
 
 type ProjectListProps = {
 	children: React.ReactNode;
@@ -24,7 +26,14 @@ type ProjectListProps = {
 
 const ProjectList: React.FC<ProjectListProps> = (props) => {
 	return (
-		<div className="grid lg:grid-cols-2 gap-24 container pb-24">
+		<div
+			className={css(container, {
+				display: "grid",
+				lg: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" },
+				gap: "24",
+				pb: "24",
+			})}
+		>
 			{props.children}
 		</div>
 	);

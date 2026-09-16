@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import { css, cx } from "styled-system/css";
 import { Markdown } from "@/components/Markdown";
 import { contentful, type PostEntry } from "@/lib/contentful";
 
@@ -74,9 +75,16 @@ export default async function BlogPost(props: PageProps<"/post/[slug]">) {
 	const post = posts.items[0];
 
 	return (
-		<div className={"px-8 pt-32 pb-64"}>
-			<div className={"max-w-[65ch] mx-auto"}>
-				<p className="text-base/7 font-semibold text-yellow-300">
+		<div className={css({ px: "8", pt: "32", pb: "64" })}>
+			<div className={css({ maxWidth: "65ch", mx: "auto" })}>
+				<p
+					className={css({
+						fontSize: "md",
+						lineHeight: "1.75rem",
+						fontWeight: "semibold",
+						color: "yellow.300",
+					})}
+				>
 					{post.fields.tags?.map((r) => {
 						if (!r) {
 							return null;
@@ -86,17 +94,36 @@ export default async function BlogPost(props: PageProps<"/post/[slug]">) {
 					})}
 				</p>
 
-				<h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-100 sm:text-5xl">
+				<h1
+					className={css({
+						mt: "2",
+						fontSize: "4xl",
+						fontWeight: "semibold",
+						letterSpacing: "tight",
+						textWrap: "pretty",
+						color: "neutral.100",
+						sm: { fontSize: "5xl" },
+					})}
+				>
 					{post.fields.title}
 				</h1>
 
-				<p className="mt-6 text-lg/8 text-neutral-400">{post.fields.excerpt}</p>
+				<p
+					className={css({
+						mt: "6",
+						fontSize: "lg",
+						lineHeight: "2rem",
+						color: "neutral.400",
+					})}
+				>
+					{post.fields.excerpt}
+				</p>
 
-				<p className="mt-6 text-xs text-neutral-400">
+				<p className={css({ mt: "6", fontSize: "xs", color: "neutral.400" })}>
 					<time>{post.fields.date}</time>
 				</p>
 
-				<article className="mt-10 prose prose-neutral scheme-dark dark:prose-invert">
+				<article className={cx("prose", css({ mt: "10" }))}>
 					<Markdown>{post.fields.body}</Markdown>
 				</article>
 			</div>

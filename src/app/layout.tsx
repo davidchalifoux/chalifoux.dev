@@ -1,9 +1,9 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import classNames from "classnames";
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { css } from "styled-system/css";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -28,10 +28,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={classNames(font.className, "bg-neutral-900")}>
-				<Navbar />
-				{children}
-				<Footer />
+			<body className={font.className}>
+				<div className={css({ isolation: "isolate" })}>
+					<Navbar />
+					{children}
+					<Footer />
+				</div>
 				<Analytics />
 				<SpeedInsights />
 			</body>

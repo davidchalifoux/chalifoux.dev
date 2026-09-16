@@ -3,42 +3,122 @@
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { css } from "styled-system/css";
 import headshotImage from "@/assets/headshot.png";
+import { container } from "@/lib/styles";
 
 export const Hero: React.FC = () => {
 	return (
-		<div className="overflow-hidden bg-linear-to-b from-neutral-900 from-50% to-neutral-950">
-			<div className="container py-32 lg:py-64">
-				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:gap-x-8">
+		<div
+			className={css({
+				overflow: "hidden",
+				backgroundImage: "linear-gradient(to bottom, #171717 50%, #0a0a0a)",
+			})}
+		>
+			<div className={css(container, { py: "32", lg: { py: "64" } })}>
+				<div
+					className={css({
+						mx: "auto",
+						maxWidth: "42rem",
+						lg: {
+							mx: "0",
+							display: "grid",
+							maxWidth: "none",
+							gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+							columnGap: "4rem",
+							rowGap: "1.5rem",
+						},
+						xl: { columnGap: "2rem" },
+					})}
+				>
 					<div>
-						<h1 className="max-w-2xl text-4xl font-bold tracking-tight text-neutral-100 sm:text-6xl lg:col-span-2 xl:col-auto">
+						<h1
+							className={css({
+								maxWidth: "42rem",
+								fontSize: "4xl",
+								fontWeight: "bold",
+								letterSpacing: "tight",
+								color: "neutral.100",
+								sm: { fontSize: "6xl" },
+								lg: { gridColumn: "span 2 / span 2" },
+								xl: { gridColumn: "auto" },
+							})}
+						>
 							Hey there!
 						</h1>
-						<div className="mt-6 max-w-xl xl:col-end-1 xl:row-start-1">
-							<p className="text-lg leading-8 text-neutral-400">
+						<div
+							className={css({
+								mt: "6",
+								maxWidth: "36rem",
+								xl: { gridColumnEnd: "1", gridRowStart: "1" },
+							})}
+						>
+							<p
+								className={css({
+									fontSize: "lg",
+									lineHeight: "2rem",
+									color: "neutral.400",
+								})}
+							>
 								My name is David Chalifoux.
 							</p>
-							<p className="text-lg leading-8 text-neutral-400">
+							<p
+								className={css({
+									fontSize: "lg",
+									lineHeight: "2rem",
+									color: "neutral.400",
+								})}
+							>
 								I&apos;m a developer who loves the web.
 							</p>
-							<p className="text-lg leading-8 text-neutral-400">
+							<p
+								className={css({
+									fontSize: "lg",
+									lineHeight: "2rem",
+									color: "neutral.400",
+								})}
+							>
 								You can learn more about my work below.
 							</p>
-							<ArrowDownIcon className="mt-6 h-6 w-6 text-yellow-300 animate-bounce" />
+							<ArrowDownIcon
+								className={css({
+									mt: "6",
+									h: "6",
+									w: "6",
+									color: "yellow.300",
+									animation: "bounce",
+								})}
+							/>
 						</div>
 					</div>
 
 					<motion.div
 						initial={{ translateY: 600 }}
 						animate={{ translateY: 0 }}
-						className="perspective-distant"
+						className={css({ perspective: "1200px" })}
 					>
 						<Image
 							src={headshotImage}
 							priority
 							quality={75}
 							alt="Headshot of David Chalifoux"
-							className="transform-3d hover:scale-z-90 shadow-xl mt-12 aspect-6/5 w-full rounded-2xl object-cover xl:row-span-2 xl:row-end-2 xl:mt-42 max-w-lg xl:mx-auto"
+							className={css({
+								transformStyle: "preserve-3d",
+								_hover: { transform: "scaleZ(0.9)" },
+								mt: "12",
+								aspectRatio: "6/5",
+								w: "full",
+								borderRadius: "2xl",
+								objectFit: "cover",
+								boxShadow: "xl",
+								maxWidth: "32rem",
+								xl: {
+									gridRow: "span 2 / span 2",
+									gridRowEnd: "2",
+									mt: "42",
+									mx: "auto",
+								},
+							})}
 						/>
 					</motion.div>
 				</div>

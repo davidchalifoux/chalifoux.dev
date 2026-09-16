@@ -1,11 +1,13 @@
 "use client";
 
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Dialog } from "@base-ui/react/dialog";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { css } from "styled-system/css";
 import logo from "@/assets/logo.svg";
+import { container } from "@/lib/styles";
 
 const navigation = [
 	{ name: "Work", href: "/#work" },
@@ -18,88 +20,167 @@ export function Navbar() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<header className="bg-neutral-900 bg-opacity-80 sticky top-0 z-50 border-b border-neutral-800">
+		<header
+			className={css({
+				position: "sticky",
+				top: "0",
+				zIndex: "50",
+				bg: "neutral.900/80",
+				borderBottomWidth: "1px",
+				borderBottomColor: "neutral.800",
+			})}
+		>
 			<nav
-				className="container flex items-center justify-between p-6 backdrop-blur-sm"
+				className={css(container, {
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "space-between",
+					p: "6",
+					backdropFilter: "blur(4px)",
+				})}
 				aria-label="Global"
 			>
-				<div className="flex lg:flex-1">
-					<Link href="/" className="-m-1.5 p-1.5">
+				<div className={css({ display: "flex", lg: { flex: "1" } })}>
+					<Link href="/" className={css({ m: "-1.5", p: "1.5" })}>
 						<Image
-							className="h-8 w-auto"
+							className={css({ h: "8", w: "auto" })}
 							src={logo}
 							alt="David Chalifoux's Logo"
 						/>
 					</Link>
 				</div>
-				<div className="flex lg:hidden">
+				<div className={css({ display: "flex", lg: { display: "none" } })}>
 					<button
 						type="button"
-						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-400"
+						className={css({
+							m: "-2.5",
+							display: "inline-flex",
+							alignItems: "center",
+							justifyContent: "center",
+							borderRadius: "md",
+							p: "2.5",
+							color: "neutral.400",
+						})}
 						onClick={() => setMobileMenuOpen(true)}
 					>
-						<span className="sr-only">Open main menu</span>
-						<Bars3Icon className="h-6 w-6" aria-hidden="true" />
+						<span className={css({ srOnly: true })}>Open main menu</span>
+						<Bars3Icon className={css({ h: "6", w: "6" })} aria-hidden="true" />
 					</button>
 				</div>
-				<div className="hidden lg:flex lg:gap-x-12">
+				<div
+					className={css({
+						display: "none",
+						lg: { display: "flex", columnGap: "12" },
+					})}
+				>
 					{navigation.map((item) => (
 						<Link
 							key={item.name}
 							href={item.href}
-							className="text-sm font-semibold leading-6 text-neutral-400 hover:text-neutral-100 transition-colors"
+							className={css({
+								fontSize: "sm",
+								fontWeight: "semibold",
+								lineHeight: "1.5rem",
+								color: "neutral.400",
+								transition: "color",
+								_hover: { color: "neutral.100" },
+							})}
 						>
 							{item.name}
 						</Link>
 					))}
 				</div>
-				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					{/* Unused */}
-				</div>
+				<div
+					className={css({
+						display: "none",
+						lg: { display: "flex", flex: "1", justifyContent: "flex-end" },
+					})}
+				/>
 			</nav>
-			<Dialog
-				as="div"
-				className="lg:hidden"
-				open={mobileMenuOpen}
-				onClose={setMobileMenuOpen}
-			>
-				<div className="fixed inset-0 z-10" />
-				<DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-neutral-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-					<div className="flex items-center justify-between">
-						<Link href="#" className="-m-1.5 p-1.5">
-							<Image
-								className="h-8 w-auto"
-								src={logo}
-								alt="David Chalifoux's Logo"
-							/>
-						</Link>
-						<button
-							type="button"
-							className="-m-2.5 rounded-md p-2.5 text-neutral-400"
-							onClick={() => setMobileMenuOpen(false)}
+			<Dialog.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+				<Dialog.Portal>
+					<Dialog.Popup
+						className={css({
+							position: "fixed",
+							insetBlock: "0",
+							right: "0",
+							zIndex: "50",
+							w: "full",
+							overflowY: "auto",
+							bg: "neutral.900",
+							px: "6",
+							py: "6",
+							sm: { maxWidth: "24rem", borderLeftWidth: "1px" },
+							borderLeftColor: "white/10",
+						})}
+					>
+						<div
+							className={css({
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "space-between",
+							})}
 						>
-							<span className="sr-only">Close menu</span>
-							<XMarkIcon className="h-6 w-6" aria-hidden="true" />
-						</button>
-					</div>
-					<div className="mt-6 flow-root">
-						<div className="-my-6 divide-y divide-neutral-500/25">
-							<div className="space-y-2 py-6">
-								{navigation.map((item) => (
-									<Link
-										key={item.name}
-										href={item.href}
-										className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-neutral-800"
-									>
-										{item.name}
-									</Link>
-								))}
-							</div>
-							<div className="py-6">{/* Unused */}</div>
+							<Link href="#" className={css({ m: "-1.5", p: "1.5" })}>
+								<Image
+									className={css({ h: "8", w: "auto" })}
+									src={logo}
+									alt="David Chalifoux's Logo"
+								/>
+							</Link>
+							<Dialog.Close
+								className={css({
+									m: "-2.5",
+									borderRadius: "md",
+									p: "2.5",
+									color: "neutral.400",
+								})}
+							>
+								<span className={css({ srOnly: true })}>Close menu</span>
+								<XMarkIcon
+									className={css({ h: "6", w: "6" })}
+									aria-hidden="true"
+								/>
+							</Dialog.Close>
 						</div>
-					</div>
-				</DialogPanel>
-			</Dialog>
+						<div className={css({ mt: "6" })}>
+							<div
+								className={css({
+									my: "-6",
+									"& > * + *": {
+										borderTopWidth: "1px",
+										borderTopColor: "neutral.500/25",
+									},
+								})}
+							>
+								<div className={css({ spaceY: "2", py: "6" })}>
+									{navigation.map((item) => (
+										<Link
+											key={item.name}
+											href={item.href}
+											className={css({
+												mx: "-3",
+												display: "block",
+												borderRadius: "lg",
+												px: "3",
+												py: "2",
+												fontSize: "md",
+												fontWeight: "semibold",
+												lineHeight: "1.75rem",
+												color: "white",
+												_hover: { bg: "neutral.800" },
+											})}
+										>
+											{item.name}
+										</Link>
+									))}
+								</div>
+								<div className={css({ py: "6" })} />
+							</div>
+						</div>
+					</Dialog.Popup>
+				</Dialog.Portal>
+			</Dialog.Root>
 		</header>
 	);
 }
