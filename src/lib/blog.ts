@@ -1,17 +1,28 @@
 import { css } from "styled-system/css";
 
+const footerStyles = {
+	"& + footer": {
+		bg: "transparent",
+		px: "8",
+		"& > div": { maxWidth: "65ch", px: "0" },
+		"& > div > div": { borderTop: "none" },
+	},
+};
+
 export const blog = {
 	page: css({
+		...footerStyles,
 		width: "full",
-		maxWidth: "860px",
+		maxWidth: "calc(65ch + 4rem)",
 		mx: "auto",
-		px: { base: "5", md: "9" },
+		px: "8",
 		pb: { base: "16", md: "24" },
-		"& + footer": {
-			bg: "transparent",
-			"& > div": { maxWidth: "860px" },
-			"& > div > div": { borderTop: "none" },
-		},
+	}),
+	postPage: css({
+		...footerStyles,
+		px: "8",
+		pt: "32",
+		pb: "64",
 	}),
 	hero: css({ pt: { base: "12", md: "16" }, pb: { base: "10", md: "14" } }),
 	title: css({

@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { css, cx } from "styled-system/css";
 import { Markdown } from "@/components/Markdown";
+import { blog } from "@/lib/blog";
 import { contentful, type PostEntry } from "@/lib/contentful";
 import { SERVER_ENV } from "@/lib/SERVER_ENV";
 
@@ -69,7 +70,7 @@ export default async function BlogPost(
 	const post = posts.items[0];
 
 	return (
-		<div className={css({ px: "8", pt: "32", pb: "64" })}>
+		<div className={blog.postPage}>
 			<div className={css({ maxWidth: "65ch", mx: "auto" })}>
 				<p
 					className={css({
