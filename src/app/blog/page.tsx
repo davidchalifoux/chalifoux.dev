@@ -1,7 +1,13 @@
-import { css } from "styled-system/css";
-import { PostListItem } from "@/components/PostListItem";
+import type { Metadata } from "next";
+import { BlogPostItem } from "@/components/BlogPostItem";
+import { blog } from "@/lib/blog";
 import { contentful, type PostEntry } from "@/lib/contentful";
-import { container } from "@/lib/styles";
+
+export const metadata: Metadata = {
+	title: "Blog · David Chalifoux",
+	description:
+		"Things I’m learning, ideas I’m exploring, and notes from building on the web.",
+};
 
 export default async function Blog() {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
@@ -20,54 +26,25 @@ export default async function Blog() {
 	);
 
 	return (
-		<div className={css({ py: "24", sm: { py: "32" } })}>
-			<div className={css(container)}>
-				<div className={css({ mx: "auto", maxWidth: "42rem" })}>
-					<h2
-						className={css({
-							fontSize: "4xl",
-							fontWeight: "semibold",
-							letterSpacing: "tight",
-							textWrap: "balance",
-							color: "neutral.100",
-							sm: { fontSize: "5xl" },
-						})}
-					>
-						Blog
-					</h2>
-					<p
-						className={css({
-							mt: "2",
-							fontSize: "lg",
-							lineHeight: "2rem",
-							color: "neutral.400",
-						})}
-					>
-						Things I've learned.
-					</p>
-				</div>
-				<div
-					className={css({
-						mx: "auto",
-						mt: "16",
-						display: "grid",
-						maxWidth: "42rem",
-						gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
-						rowGap: "16",
-					})}
-				>
-					{posts.items.map((post) => (
-						<PostListItem
-							key={post.sys.id}
-							title={post.fields.title}
-							published_at={post.fields.date}
-							tags={post.fields.tags}
-							slug={post.fields.slug}
-							excerpt={post.fields.excerpt}
-						/>
-					))}
-				</div>
-			</div>
-		</div>
+		<main className={blog.page}>
+			<header className={blog.hero}>
+				<h1 className={blog.title}>Things I’ve learned.</h1>
+				<p className={blog.intro}>
+					Ideas I’m exploring, problems I’ve worked through, and notes from
+					building on the web.
+				</p>
+			</header>
+			<section aria-label="Blog posts">
+				{posts.items.length > 0 ? (
+					<div className={blog.list}>
+						{posts.items.map((post) => (
+							<BlogPostItem key={post.sys.id} post={post} />
+						))}
+					</div>
+				) : (
+					<p className={blog.empty}>Nothing published yet. Check back soon.</p>
+				)}
+			</section>
+		</main>
 	);
 }

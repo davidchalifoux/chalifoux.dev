@@ -1,7 +1,7 @@
-import { css } from "styled-system/css";
+import Link from "next/link";
 import { PostListItem } from "@/components/PostListItem";
 import { contentful, type PostEntry } from "@/lib/contentful";
-import { container } from "@/lib/styles";
+import { studio } from "@/lib/studio";
 
 export const RecentPosts: React.FC = async () => {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
@@ -21,45 +21,21 @@ export const RecentPosts: React.FC = async () => {
 	);
 
 	return (
-		<div className={css(container, { py: "64" })} id="contact">
-			<div
-				className={css({
-					display: "grid",
-					gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
-					columnGap: "2rem",
-					rowGap: "2.5rem",
-					lg: { gridTemplateColumns: "repeat(3, minmax(0, 1fr))" },
-				})}
-			>
+		<section className={studio.writing} aria-labelledby="writing-heading">
+			<div className={studio.writingInner}>
 				<div>
-					<h2
-						className={css({
-							fontSize: "3xl",
-							fontWeight: "bold",
-							letterSpacing: "tight",
-							color: "neutral.100",
-						})}
-					>
-						Recent Posts
+					<h2 id="writing-heading" className={studio.writingTitle}>
+						A place to think out loud.
 					</h2>
-					<p
-						className={css({
-							mt: "4",
-							lineHeight: "1.75rem",
-							color: "neutral.400",
-						})}
-					>
-						My latest writings.
+					<p className={studio.writingCopy}>
+						Things I’m learning, ideas I’m exploring, and notes from building on
+						the web.
 					</p>
+					<Link className={studio.textLink} href="/blog">
+						Read the blog <span aria-hidden="true">↗</span>
+					</Link>
 				</div>
-				<div
-					className={css({
-						display: "grid",
-						gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
-						gap: "1.5rem",
-						lg: { gridColumn: "span 2 / span 2", gap: "2rem" },
-					})}
-				>
+				<div className={studio.postGrid}>
 					{posts.items.map((post) => (
 						<PostListItem
 							key={post.sys.id}
@@ -72,6 +48,6 @@ export const RecentPosts: React.FC = async () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };

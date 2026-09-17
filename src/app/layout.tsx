@@ -2,16 +2,26 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
-import { css } from "styled-system/css";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { studio } from "@/lib/studio";
 
-const font = JetBrains_Mono({ subsets: ["latin"] });
+const geistSans = Geist({
+	subsets: ["latin"],
+	variable: "--font-geist-sans",
+	display: "swap",
+});
+
+const geistMono = Geist_Mono({
+	subsets: ["latin"],
+	variable: "--font-geist-mono",
+	display: "swap",
+});
 
 export const viewport: Viewport = {
-	themeColor: "#171717",
+	themeColor: "#0a0a0a",
 };
 
 export const metadata: Metadata = {
@@ -27,9 +37,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={font.className}>
-				<div className={css({ isolation: "isolate" })}>
+		<html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body>
+				<div className={studio.site}>
 					<Navbar />
 					{children}
 					<Footer />

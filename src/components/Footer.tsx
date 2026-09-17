@@ -1,21 +1,24 @@
-import { css } from "styled-system/css";
-import { container } from "@/lib/styles";
+import { studio } from "@/lib/studio";
 
-export const Footer: React.FC = () => {
+export function Footer() {
 	return (
-		<footer
-			className={css(container, {
-				py: "12",
-				fontSize: "xs",
-				lineHeight: "1.25rem",
-				color: "neutral.500",
-			})}
-		>
-			<p>Built by David Chalifoux with Next.js and PandaCSS.</p>
-			<p>
-				Source code available on{" "}
-				<a href="https://github.com/davidchalifoux/chalifoux.dev">GitHub</a>.
-			</p>
+		<footer className={studio.footer}>
+			<div className={studio.footerInner}>
+				<div className={studio.footerRow}>
+					<span>
+						David Chalifoux<span className={studio.brandDot}>.</span>
+					</span>
+					<nav aria-label="Social and contact links">
+						<a href="mailto:mail@chalifoux.dev">Email ↗</a>
+						<a href="https://github.com/davidchalifoux">GitHub ↗</a>
+						<a href="https://bsky.app/profile/chalifoux.dev">Bluesky ↗</a>
+						<a href="https://x.com/chalifouxdev">X ↗</a>
+						<a href="https://www.linkedin.com/in/david-chalifoux/">
+							LinkedIn ↗
+						</a>
+					</nav>
+				</div>
+			</div>
 		</footer>
 	);
-};
+}

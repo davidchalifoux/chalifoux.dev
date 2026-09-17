@@ -9,6 +9,10 @@ export default defineConfig({
 	theme: {
 		extend: {
 			tokens: {
+				fonts: {
+					sans: { value: "var(--font-geist-sans), sans-serif" },
+					mono: { value: "var(--font-geist-mono), monospace" },
+				},
 				colors: {
 					neutral: {
 						50: { value: "#fafafa" },
@@ -55,9 +59,13 @@ export default defineConfig({
 			colorScheme: "dark",
 		},
 		body: {
+			fontFamily: "sans",
 			bg: "neutral.900",
 			color: "neutral.100",
 			position: "relative",
+		},
+		"code, pre, kbd, samp": {
+			fontFamily: "mono",
 		},
 		"code:not(pre > code)": {
 			bg: "neutral.800",
