@@ -1,11 +1,37 @@
-export const Footer: React.FC = () => {
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
+import { studio } from "@/lib/studio";
+
+export function Footer() {
 	return (
-		<footer className="container py-12 text-xs leading-5 text-neutral-500">
-			<p>Built by David Chalifoux with Next.js and TailwindCSS.</p>
-			<p>
-				Source code available on{" "}
-				<a href="https://github.com/davidchalifoux/chalifoux.dev">GitHub</a>.
-			</p>
+		<footer className={studio.footer}>
+			<div className={studio.footerInner}>
+				<div className={studio.footerRow}>
+					<span>
+						David Chalifoux<span className={studio.brandDot}>.</span>
+					</span>
+					<nav aria-label="Social and contact links">
+						<a href="mailto:mail@chalifoux.dev">
+							Email
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://github.com/davidchalifoux">
+							GitHub
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://bsky.app/profile/chalifoux.dev">
+							Bluesky
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://x.com/chalifouxdev">
+							X<ArrowUpRightIcon />
+						</a>
+						<a href="https://www.linkedin.com/in/david-chalifoux/">
+							LinkedIn
+							<ArrowUpRightIcon />
+						</a>
+					</nav>
+				</div>
+			</div>
 		</footer>
 	);
-};
+}

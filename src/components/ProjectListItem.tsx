@@ -1,8 +1,6 @@
-import { CodeBracketIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
-import classNames from "classnames";
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
-import { ProjectListItemTooltips } from "./ProjectListemItemTooltips";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
+import { studio } from "@/lib/studio";
 
 type Props = {
 	image: StaticImageData;
@@ -11,49 +9,56 @@ type Props = {
 	technologies: string[];
 	websiteUrl?: string;
 	repoUrl?: string;
+	featured?: boolean;
 };
 
-export const ProjectListItem: React.FC<Props> = (props) => {
+export function ProjectListItem(props: Props) {
 	return (
-		<div>
-			<ProjectListItemTooltips />
-			<Image
-				className="aspect-4/3 w-full rounded-lg object-cover border border-neutral-800"
-				src={props.image}
-				alt="Project image"
-			/>
-			<div className="mt-6 text-xl font-semibold leading-8 text-neutral-100">
-				{props.title}
-			</div>
-			<div className="text-sm leading-7 text-neutral-500">
-				{props.technologies.join(" • ")}
-			</div>
-			<div className="mt-4 text-base leading-7 text-neutral-400">
-				{props.description}
-			</div>
-			<div className="mt-4 text-neutral-400">
+		<article
+			className={studio.card}
+			data-featured={props.featured ? "" : undefined}
+		>
+			<h3 className={studio.cardTitle}>{props.title}</h3>
+			<p className={studio.technologies}>{props.technologies.join(" · ")}</p>
+			<p className={studio.cardDescription}>{props.description}</p>
+			<div className={studio.cardLinks}>
 				{props.websiteUrl && (
-					<Link
+					<a
+						className={studio.textLink}
 						href={props.websiteUrl}
-						className={classNames(
-							"hover:text-yellow-300 mr-4",
-							"anchor-website",
-						)}
+						aria-label={`Explore ${props.title}`}
 						target="_blank"
+						rel="noreferrer"
 					>
-						<GlobeAltIcon className="inline-block h-5 w-5" />
-					</Link>
+						Explore
+						<ArrowUpRightIcon />
+					</a>
 				)}
 				{props.repoUrl && (
-					<Link
+					<a
+						className={studio.textLink}
 						href={props.repoUrl}
-						className={classNames("hover:text-yellow-300 mr-4", "anchor-repo")}
 						target="_blank"
+						rel="noreferrer"
+						aria-label={`View ${props.title} source code`}
 					>
-						<CodeBracketIcon className="inline-block h-5 w-5" />
-					</Link>
+						Source code
+						<ArrowUpRightIcon />
+					</a>
 				)}
 			</div>
-		</div>
+			<Image
+				src={props.image}
+				alt={`${props.title} application interface`}
+				className={studio.cardImage}
+				data-featured={props.featured ? "" : undefined}
+				sizes={
+					props.featured
+						? "(max-width: 768px) 90vw, 1000px"
+						: "(max-width: 768px) 90vw, 520px"
+				}
+				loading={props.featured ? "eager" : "lazy"}
+			/>
+		</article>
 	);
-};
+}

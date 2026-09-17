@@ -1,5 +1,8 @@
+import Link from "next/link";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { PostListItem } from "@/components/PostListItem";
 import { contentful, type PostEntry } from "@/lib/contentful";
+import { studio } from "@/lib/studio";
 
 export const RecentPosts: React.FC = async () => {
 	const posts = await contentful.withoutUnresolvableLinks.getEntries<PostEntry>(
@@ -19,15 +22,22 @@ export const RecentPosts: React.FC = async () => {
 	);
 
 	return (
-		<div className="container py-64" id="contact">
-			<div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+		<section className={studio.writing} aria-labelledby="writing-heading">
+			<div className={studio.writingInner}>
 				<div>
-					<h2 className="text-3xl font-bold tracking-tight text-neutral-100">
-						Recent Posts
+					<h2 id="writing-heading" className={studio.writingTitle}>
+						A place to think out loud.
 					</h2>
-					<p className="mt-4 leading-7 text-neutral-400">My latest writings.</p>
+					<p className={studio.writingCopy}>
+						Things I’m learning, ideas I’m exploring, and notes from building on
+						the web.
+					</p>
+					<Link className={studio.textLink} href="/blog">
+						Read my blog
+						<ArrowUpRightIcon />
+					</Link>
 				</div>
-				<div className="grid grid-cols-1 gap-6 lg:col-span-2 lg:gap-8">
+				<div className={studio.postGrid}>
 					{posts.items.map((post) => (
 						<PostListItem
 							key={post.sys.id}
@@ -40,6 +50,6 @@ export const RecentPosts: React.FC = async () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
