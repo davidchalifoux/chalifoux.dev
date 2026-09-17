@@ -14,6 +14,9 @@ importers:
       '@heroicons/react':
         specifier: ^2.2.0
         version: 2.2.0(react@19.3.0)
+      '@remixicon/react':
+        specifier: ^4.9.0
+        version: 4.9.0(react@19.3.0)
       '@tabler/icons-react':
         specifier: ^3.46.0
         version: 3.46.0(react@19.3.0)
@@ -697,6 +700,11 @@ packages:
   '@pandacss/types@1.12.1':
     resolution: {integrity: sha512-ucDQwuOrSKhXDuTFMB/VZsrH4zK1DtOvrkCMuzNL9brJiUS8+5IcGR4uP2/jNXm05/iI6zaBbWjwGhbRDsFicQ==}
     engines: {node: '>=20'}
+
+  '@remixicon/react@4.9.0':
+    resolution: {integrity: sha512-5/jLDD4DtKxH2B4QVXTobvV1C2uL8ab9D5yAYNtFt+w80O0Ys1xFOrspqROL3fjrZi+7ElFUWE37hBfaAl6U+Q==}
+    peerDependencies:
+      react: '>=18.2.0'
 
   '@rollup/rollup-linux-x64-gnu@4.63.3':
     resolution: {integrity: sha512-SXagRwnI2Wlwlitllu59UK/nGVbD1CKPcNqDplHwIC4BqJcpXFjD32d1R/RbuISa95HdQrZM3/7v4bKiowFaLA==}
@@ -2271,6 +2279,10 @@ snapshots:
       ts-pattern: 5.9.0
 
   '@pandacss/types@1.12.1': {}
+
+  '@remixicon/react@4.9.0(react@19.3.0)':
+    dependencies:
+      react: 19.3.0
 
   '@rollup/rollup-linux-x64-gnu@4.63.3':
     optional: true

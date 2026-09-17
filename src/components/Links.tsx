@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { Header } from "@/components/Header";
 import { studio } from "@/lib/studio";
 
@@ -45,7 +46,8 @@ export function Links() {
 				{links.map((link) => (
 					<a className={studio.linkCard} href={link.href} key={link.title}>
 						<h3>
-							{link.title} <span aria-hidden="true">↗</span>
+							{link.title}
+							<ArrowUpRightIcon />
 						</h3>
 						<p>{link.detail}</p>
 					</a>

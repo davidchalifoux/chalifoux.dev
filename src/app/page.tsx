@@ -1,6 +1,7 @@
 // Components
 
 import Image from "next/image";
+import logo from "@/assets/logo.svg";
 import adventureImage from "@/assets/projects/adventure.png";
 import envisageImage from "@/assets/projects/envisage.png";
 import frankerImage from "@/assets/projects/franker.png";
@@ -13,6 +14,7 @@ import tentoriumImage from "@/assets/projects/tentorium.png";
 import ticTacToeImage from "@/assets/projects/tic-tac-toe.png";
 // Images
 import vanirImage from "@/assets/projects/vanir.png";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Links } from "@/components/Links";
@@ -149,7 +151,7 @@ export default function Home() {
 			</section>
 			<section className={studio.note}>
 				<Image
-					src="/icon.svg"
+					src={logo}
 					alt=""
 					width={66}
 					height={66}
@@ -161,7 +163,8 @@ export default function Home() {
 					always something new to figure out.
 				</p>
 				<a className={studio.textLink} href="https://github.com/davidchalifoux">
-					See what I’m building on GitHub ↗
+					See what I’m building on GitHub
+					<ArrowUpRightIcon />
 				</a>
 			</section>
 

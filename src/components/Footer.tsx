@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { studio } from "@/lib/studio";
 
 export function Footer() {
@@ -9,12 +10,24 @@ export function Footer() {
 						David Chalifoux<span className={studio.brandDot}>.</span>
 					</span>
 					<nav aria-label="Social and contact links">
-						<a href="mailto:mail@chalifoux.dev">Email ↗</a>
-						<a href="https://github.com/davidchalifoux">GitHub ↗</a>
-						<a href="https://bsky.app/profile/chalifoux.dev">Bluesky ↗</a>
-						<a href="https://x.com/chalifouxdev">X ↗</a>
+						<a href="mailto:mail@chalifoux.dev">
+							Email
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://github.com/davidchalifoux">
+							GitHub
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://bsky.app/profile/chalifoux.dev">
+							Bluesky
+							<ArrowUpRightIcon />
+						</a>
+						<a href="https://x.com/chalifouxdev">
+							X<ArrowUpRightIcon />
+						</a>
 						<a href="https://www.linkedin.com/in/david-chalifoux/">
-							LinkedIn ↗
+							LinkedIn
+							<ArrowUpRightIcon />
 						</a>
 					</nav>
 				</div>

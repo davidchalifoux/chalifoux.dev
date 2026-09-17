@@ -24,7 +24,7 @@ export function Navbar() {
 					<Link href="/#work">Work</Link>
 					<Link href="/#projects">Projects</Link>
 					<Link href="/#links">Links</Link>
-					<Link href="/blog">Writing</Link>
+					<Link href="/blog">Blog</Link>
 				</nav>
 			</div>
 		</header>

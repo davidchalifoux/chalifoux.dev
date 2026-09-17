@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { studio } from "@/lib/studio";
 
 type Props = {
@@ -29,7 +30,8 @@ export function ProjectListItem(props: Props) {
 						target="_blank"
 						rel="noreferrer"
 					>
-						Explore <span aria-hidden="true">↗</span>
+						Explore
+						<ArrowUpRightIcon />
 					</a>
 				)}
 				{props.repoUrl && (
@@ -40,7 +42,8 @@ export function ProjectListItem(props: Props) {
 						rel="noreferrer"
 						aria-label={`View ${props.title} source code`}
 					>
-						Source code <span aria-hidden="true">↗</span>
+						Source code
+						<ArrowUpRightIcon />
 					</a>
 				)}
 			</div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRightIcon } from "@/components/ArrowUpRightIcon";
 import { PostListItem } from "@/components/PostListItem";
 import { contentful, type PostEntry } from "@/lib/contentful";
 import { studio } from "@/lib/studio";
@@ -32,7 +33,8 @@ export const RecentPosts: React.FC = async () => {
 						the web.
 					</p>
 					<Link className={studio.textLink} href="/blog">
-						Read the blog <span aria-hidden="true">↗</span>
+						Read my blog
+						<ArrowUpRightIcon />
 					</Link>
 				</div>
 				<div className={studio.postGrid}>
