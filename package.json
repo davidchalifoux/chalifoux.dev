@@ -2,6 +2,7 @@
 	"name": "chalifoux.dev",
 	"version": "0.1.0",
 	"private": true,
+	"packageManager": "pnpm@11.25.0",
 	"scripts": {
 		"prepare": "panda codegen",
 		"dev": "panda codegen && next dev",
